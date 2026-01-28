@@ -4,6 +4,7 @@ const team = [
     name: 'Jose Uryel Leyva',
     title: 'CEO & Managing Attorney',
     bio: 'Founding partner with expertise in estate planning and business law. Jose leads our firm with a vision for accessible, client-focused legal services.',
+    image: '/team/jose-leyva.jpg',
   },
   {
     initials: 'NM',
@@ -16,6 +17,7 @@ const team = [
     name: 'Brett Emerson',
     title: 'COO & Trial Attorney',
     bio: 'Expert litigator focusing on personal injury and IP law. Brett ensures our operations run smoothly while advocating fiercely for clients.',
+    image: '/team/brett-emerson.jpg',
   },
 ]
 
@@ -43,9 +45,17 @@ export default function Team() {
               className="bg-white rounded-lg p-8 shadow-lg text-center"
             >
               {/* Avatar */}
-              <div className="w-24 h-24 bg-navy rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl font-heading font-bold text-gold">{member.initials}</span>
-              </div>
+              {member.image ? (
+                <img 
+                  src={member.image} 
+                  alt={member.name}
+                  className="w-24 h-24 rounded-full object-cover mx-auto mb-6"
+                />
+              ) : (
+                <div className="w-24 h-24 bg-navy rounded-full flex items-center justify-center mx-auto mb-6">
+                  <span className="text-2xl font-heading font-bold text-gold">{member.initials}</span>
+                </div>
+              )}
               
               <h3 className="text-xl font-heading font-bold text-navy mb-2">
                 {member.name}
